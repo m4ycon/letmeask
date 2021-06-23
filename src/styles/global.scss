@@ -12,3 +12,10 @@ body {
 body, input, button, textarea {
   font: 400 16px 'Roboto', sans-serif;
 }
+
+
+input:focus {
+  outline: 0;
+
+  box-shadow: 0 0 0 1px #835afd;
+}
