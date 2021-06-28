@@ -1,18 +1,18 @@
 import { useHistory, useParams } from 'react-router-dom'
 
-import logoImg from '../assets/images/logo.svg'
-import deleteImg from '../assets/images/delete.svg'
-import checkImg from '../assets/images/check.svg'
-import answerImg from '../assets/images/answer.svg'
+import logoImg from '../../assets/images/logo.svg'
+import deleteImg from '../../assets/images/delete.svg'
+import checkImg from '../../assets/images/check.svg'
+import answerImg from '../../assets/images/answer.svg'
 
-import { Button } from './../components/Button'
-import { RoomCode } from './../components/RoomCode'
+import { Button } from '../../components/Button'
+import { RoomCode } from '../../components/RoomCode'
 
-import '../styles/room.scss'
-import { useAuth } from '../hooks/useAuth'
-import { database } from '../services/firebase'
-import { Question } from '../components/Question'
-import { useRoom } from '../hooks/useRoom'
+import '../../styles/room.scss'
+// import { useAuth } from '../../hooks/useAuth'
+import { database } from '../../services/firebase'
+import { Question } from '../../components/Question'
+import { useRoom } from '../../hooks/useRoom'
 
 type RoomParams = {
 	id: string
@@ -20,7 +20,7 @@ type RoomParams = {
 
 export const AdminRoom = () => {
 	const history = useHistory()
-	const { user } = useAuth()
+	// const { user } = useAuth()
 
 	const { id: roomId } = useParams<RoomParams>()
 	const { title, questions } = useRoom(roomId)
