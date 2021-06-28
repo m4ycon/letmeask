@@ -1,12 +1,12 @@
 # ❔ Letmeask ❔
 
 <h1 align="center">
-  <img height="100px" src="./readme-images/Screenshot_2.png" />
-  <img height="100px" src="./readme-images/Screenshot_3.png" />
+  <img height="200px" src="./readme-images/Screenshot_2.png" />
+  <img height="200px" src="./readme-images/Screenshot_3.png" />
 </h1>
 <h1 align="center">
-  <img height="100px" src="./readme-images/Screenshot_4.png" />
-  <img height="100px" src="./readme-images/Screenshot_5.png" />
+  <img height="200px" src="./readme-images/Screenshot_4.png" />
+  <img height="200px" src="./readme-images/Screenshot_5.png" />
 </h1>
 
 ---
