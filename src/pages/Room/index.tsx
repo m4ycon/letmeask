@@ -58,7 +58,7 @@ export const Room = () => {
 			await database
 				.ref(`/rooms/${roomId}/questions/${questionId}/likes/${likeId}`)
 				.remove()
-		else
+		else if (user)
 			await database
 				.ref(`/rooms/${roomId}/questions/${questionId}/likes`)
 				.push({
@@ -132,6 +132,7 @@ export const Room = () => {
 									onClick={() =>
 										handleLikeQuestion(question.id, question.likeId)
 									}
+                  disabled={!user}
 								>
 									{question.likeCount > 0 && <span>{question.likeCount}</span>}
 									<svg
