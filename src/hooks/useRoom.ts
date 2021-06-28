@@ -56,10 +56,23 @@ export const useRoom = (roomId: string) => {
 					isAnswered: value.isAnswered,
 					likeCount: Object.values(value.likes ?? {}).length,
 					likeId: Object.entries(value.likes ?? {}).find(
-						([key, like]) => like.authorId === user?.id
+						([, like]) => like.authorId === user?.id
 					)?.[0],
 				})
 			)
+
+			// Ordena as questões pelos likes,
+			// e também se está destacada ou se já foi respondida
+			// inicio [...destacadas, ..., ...respondida] fim
+			parsedQuestions
+				.sort((a, b) => b.likeCount - a.likeCount)
+				.sort((a, b) =>
+					!a.isAnswered && b.isAnswered
+						? -1
+						: a.isHighlighted && !b.isHighlighted && !a.isAnswered
+						? -1
+						: 0
+				)
 
 			setTitle(databaseRoom.title)
 			setQuestions(parsedQuestions)
