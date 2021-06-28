@@ -51,9 +51,23 @@ If you have `yarn` installed, you can replace `npm`. Open `cmd` and:
 $ git clone https://github.com/m4ycon/letmeask.git
 $ cd proffy/web
 $ npm install
-# Run frontend
-$ npm start
 ```
+
+After this, you will need to set up your environment by creating a file `.env.local` at the root of your repository. Complete `...` with the respective `api_key`, `auth_domain`, ..., your firebase configuration.
+
+```
+# Firebase config
+REACT_APP_API_KEY='...'
+REACT_APP_AUTH_DOMAIN='...'
+REACT_APP_DATABASE_URL='...'
+REACT_APP_PROJECT_ID='...'
+REACT_APP_STORAGE_BUCKET='...'
+REACT_APP_MESSAGING_SENDER_ID='...'
+REACT_APP_APP_ID='...'
+```
+And finally you can run `$ npm start` and access the app on `http://localhost:3000`
+
+
 
 Happy hacking!
 
