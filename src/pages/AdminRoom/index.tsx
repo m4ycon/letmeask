@@ -9,10 +9,10 @@ import { Button } from '../../components/Button'
 import { RoomCode } from '../../components/RoomCode'
 
 import '../../styles/room.scss'
-// import { useAuth } from '../../hooks/useAuth'
 import { database } from '../../services/firebase'
 import { Question } from '../../components/Question'
 import { useRoom } from '../../hooks/useRoom'
+import { useAuth } from '../../hooks/useAuth'
 
 type RoomParams = {
 	id: string
@@ -20,10 +20,15 @@ type RoomParams = {
 
 export const AdminRoom = () => {
 	const history = useHistory()
-	// const { user } = useAuth()
 
+	const { user, signOut } = useAuth()
 	const { id: roomId } = useParams<RoomParams>()
 	const { title, questions } = useRoom(roomId)
+
+	const handleSignOut = async () => {
+		await signOut()
+		history.push(`/rooms/${roomId}`)
+	}
 
 	const handleEndRoom = async () => {
 		await database.ref(`/rooms/${roomId}`).update({
@@ -62,6 +67,11 @@ export const AdminRoom = () => {
 						<Button isOutlined onClick={handleEndRoom}>
 							Encerrar sala
 						</Button>
+						{user && (
+							<Button isOutlined onClick={handleSignOut}>
+								Sign Out
+							</Button>
+						)}
 					</div>
 				</div>
 			</header>

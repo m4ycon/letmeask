@@ -18,11 +18,15 @@ type RoomParams = {
 }
 
 export const Room = () => {
-	const { user } = useAuth()
+	const { user, signInWithGoogle, signOut } = useAuth()
 
 	const { id: roomId } = useParams<RoomParams>()
 	const [newQuestion, setNewQuestion] = useState('')
 	const { title, questions } = useRoom(roomId)
+
+	const handleLogin = signInWithGoogle
+
+	const handleSignOut = signOut
 
 	const handleSendQuestion = async (e: FormEvent) => {
 		e.preventDefault()
@@ -67,7 +71,15 @@ export const Room = () => {
 			<header>
 				<div className='content'>
 					<img src={logoImg} alt='Letmeask' />
-					<RoomCode code={roomId} />
+
+					<div>
+						<RoomCode code={roomId} />
+						{user && (
+							<Button isOutlined onClick={handleSignOut}>
+								Sign Out
+							</Button>
+						)}
+					</div>
 				</div>
 			</header>
 
@@ -92,7 +104,8 @@ export const Room = () => {
 							</div>
 						) : (
 							<span>
-								Para enviar uma pergunta, <button>faça seu login</button>.
+								Para enviar uma pergunta,{' '}
+								<button onClick={handleLogin}>faça seu login</button>.
 							</span>
 						)}
 
