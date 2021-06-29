@@ -26,6 +26,7 @@ You can view this repo deployed by clicking [here](https://letmeask-19e44.web.ap
   - react-router-dom
   - sass
   - classnames
+  - react-modal
 - Backend - **Firebase**
   - Realtime database
   - Authentication with google
