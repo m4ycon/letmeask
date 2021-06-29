@@ -36,7 +36,7 @@ export const AdminRoom = () => {
 
 		alert('Unauthorized')
 		return history.push(`/rooms/${roomId}`)
-	}, [authorId, user?.id])
+	}, [authorId, user?.id, roomId, history])
 
 	const handleSignOut = async () => {
 		await signOut()

@@ -1,6 +1,5 @@
 import { FormEvent, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import cx from 'classnames'
 
 import logoImg from '../../assets/images/logo.svg'
 
