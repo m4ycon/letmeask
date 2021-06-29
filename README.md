@@ -36,9 +36,10 @@ You can view this repo deployed by clicking [here](https://letmeask-19e44.web.ap
 # 📚 Beyond the event
 This section lists a bunch of features made in addition to the content of NLW.
   - [x] Responsiveness
-  - [ ] Modal
+  - [x] Modal
   - [x] Ranking questions by likes, highlighted and answered
-  - [x] Logout option
+  - [x] Logout header option
+  - [x] Admin page header option
   - [x] Redirecting unauthorized user on admin page
   - [x] Admin page seeing likes
   - [x] Bug when liking not logged in
