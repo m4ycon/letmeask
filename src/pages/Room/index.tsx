@@ -1,5 +1,5 @@
 import { FormEvent, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 
 import logoImg from '../../assets/images/logo.svg'
 
@@ -22,11 +22,15 @@ export const Room = () => {
 
 	const { id: roomId } = useParams<RoomParams>()
 	const [newQuestion, setNewQuestion] = useState('')
-	const { title, questions } = useRoom(roomId)
+	const { authorId, title, questions } = useRoom(roomId)
+
+  const history = useHistory()
 
 	const handleLogin = signInWithGoogle
 
 	const handleSignOut = signOut
+
+	const handleAdminPage = () => history.push(`/admin/rooms/${roomId}`)
 
 	const handleSendQuestion = async (e: FormEvent) => {
 		e.preventDefault()
@@ -74,6 +78,11 @@ export const Room = () => {
 
 					<div>
 						<RoomCode code={roomId} />
+						{user?.id === authorId && (
+							<Button isOutlined onClick={handleAdminPage}>
+								Admin
+							</Button>
+						)}
 						{user && (
 							<Button isOutlined onClick={handleSignOut}>
 								Sign Out
@@ -126,7 +135,7 @@ export const Room = () => {
 						>
 							{!question.isAnswered && (
 								<LikeButton
-                  question={question}
+									question={question}
 									onClick={() =>
 										handleLikeQuestion(question.id, question.likeId)
 									}
