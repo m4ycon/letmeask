@@ -35,7 +35,7 @@ You can view this repo deployed by clicking [here](https://letmeask-19e44.web.ap
 
 # 📚 Beyond the event
 This section lists a bunch of features that were made after the event ended.
-  - [ ] Responsiveness
+  - [x] Responsiveness
   - [ ] Modal
   - [x] Ranking questions by likes, highlighted and answered
   - [x] Logout option
