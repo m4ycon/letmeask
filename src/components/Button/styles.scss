@@ -25,6 +25,15 @@
 		color: #835afd;
 	}
 
+	&.gray {
+		background: #dbdcdd;
+		color: #737380;
+	}
+
+  &.danger {
+    background: #E73F5D;
+  }
+
 	&:not(:disabled):hover {
 		filter: brightness(0.9);
 	}
