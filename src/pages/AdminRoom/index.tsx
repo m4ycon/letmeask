@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 
 import logoImg from '../../assets/images/logo.svg'
@@ -23,7 +24,18 @@ export const AdminRoom = () => {
 
 	const { user, signOut } = useAuth()
 	const { id: roomId } = useParams<RoomParams>()
-	const { title, questions } = useRoom(roomId)
+	const { authorId, title, questions } = useRoom(roomId)
+
+	useEffect(() => {
+		if (
+			!authorId ||
+			(localStorage.getItem('is_signed') && user?.id === authorId)
+		)
+			return
+
+		alert('Unauthorized')
+		return history.push(`/rooms/${roomId}`)
+	}, [authorId, user?.id])
 
 	const handleSignOut = async () => {
 		await signOut()

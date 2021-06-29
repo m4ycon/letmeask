@@ -47,12 +47,14 @@ export const AuthContextProvider = (props: AuthContextProviderProps) => {
 			if (!displayName || !photoURL)
 				throw new Error('Missing information from Google Account.')
 
+      localStorage.setItem('is_signed', 'true')
 			setUser({ id: uid, name: displayName, avatar: photoURL })
 		}
 	}
 
 	const signOut = async () => {
 		if (user) {
+      localStorage.removeItem('is_signed')
 			setUser(undefined)
 			return await auth.signOut()
 		}
