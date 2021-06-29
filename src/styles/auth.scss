@@ -3,6 +3,10 @@
 	align-items: stretch;
 	height: 100vh;
 
+	@media (max-width: 900px) {
+		flex-direction: column;
+	}
+
 	aside {
 		flex: 7;
 
@@ -31,6 +35,17 @@
 			margin-top: 16px;
 			color: #f8f8f8;
 		}
+
+		@media (max-width: 900px) {
+			flex: unset;
+			height: min-content;
+			padding: 12px 32px 32px;
+			box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+
+			img {
+				display: none;
+			}
+		}
 	}
 
 	main {
@@ -41,6 +56,12 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+
+		@media (max-width: 900px) {
+			flex: unset;
+			padding: 48px 32px;
+      height: 100%;
+		}
 	}
 
 	.main-content {
