@@ -58,30 +58,7 @@
 			border: 0;
 			background: transparent;
 			cursor: pointer;
-
-			&.like-button {
-				display: flex;
-				align-items: flex-end;
-				color: #737380;
-				gap: 8px;
-        transition: filter 200ms;
-
-				&.liked {
-					color: #835afd;
-
-					svg path {
-						stroke: #835afd;
-					}
-				}
-
-				&:hover {
-					filter: brightness(0.7);
-				}
-
-        &:disabled {
-          cursor: default;
-        }
-			}
+      margin-bottom: auto;
 		}
 	}
 }

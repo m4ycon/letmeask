@@ -39,7 +39,7 @@ This section lists a bunch of features that were made after the event ended.
   - [x] Ranking questions by likes, highlighted and answered
   - [x] Logout option
   - [x] Redirecting unauthorized user on admin page
-  - [ ] Admin page seeing likes
+  - [x] Admin page seeing likes
   - [x] Bug when liking not logged in
 
 ---

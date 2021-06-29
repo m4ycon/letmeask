@@ -14,6 +14,7 @@ import { database } from '../../services/firebase'
 import { Question } from '../../components/Question'
 import { useRoom } from '../../hooks/useRoom'
 import { useAuth } from '../../hooks/useAuth'
+import LikeButton from '../../components/LikeButton'
 
 type RoomParams = {
 	id: string
@@ -105,6 +106,7 @@ export const AdminRoom = () => {
 						>
 							{!question.isAnswered && (
 								<>
+                  <LikeButton question={question} disabled />
 									<button
 										type='button'
 										onClick={() => handleCheckQuestionAsAnswered(question.id)}
