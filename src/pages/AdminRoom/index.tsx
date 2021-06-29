@@ -1,10 +1,11 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 
 import logoImg from '../../assets/images/logo.svg'
 import deleteImg from '../../assets/images/delete.svg'
 import checkImg from '../../assets/images/check.svg'
 import answerImg from '../../assets/images/answer.svg'
+import closeImg from '../../assets/images/close.svg'
 
 import { Button } from '../../components/Button'
 import { RoomCode } from '../../components/RoomCode'
@@ -15,6 +16,7 @@ import { Question } from '../../components/Question'
 import { useRoom } from '../../hooks/useRoom'
 import { useAuth } from '../../hooks/useAuth'
 import LikeButton from '../../components/LikeButton'
+import Modal from '../../components/Modal'
 
 type RoomParams = {
 	id: string
@@ -26,6 +28,7 @@ export const AdminRoom = () => {
 	const { user, signOut } = useAuth()
 	const { id: roomId } = useParams<RoomParams>()
 	const { authorId, title, questions } = useRoom(roomId)
+	const [showModal, setShowModal] = useState(false)
 
 	useEffect(() => {
 		if (
@@ -77,7 +80,7 @@ export const AdminRoom = () => {
 
 					<div>
 						<RoomCode code={roomId} />
-						<Button isOutlined onClick={handleEndRoom}>
+						<Button isOutlined onClick={() => setShowModal(true)}>
 							Encerrar sala
 						</Button>
 						{user && (
@@ -106,7 +109,7 @@ export const AdminRoom = () => {
 						>
 							{!question.isAnswered && (
 								<>
-                  <LikeButton question={question} disabled />
+									<LikeButton question={question} disabled />
 									<button
 										type='button'
 										onClick={() => handleCheckQuestionAsAnswered(question.id)}
@@ -131,6 +134,43 @@ export const AdminRoom = () => {
 					))}
 				</div>
 			</main>
+
+			<Modal
+				contentLabel='Encerrar sala'
+				isOpen={showModal}
+				onRequestClose={() => setShowModal(false)}
+				preventScroll
+			>
+				<svg
+					xmlns='http://www.w3.org/2000/svg'
+					width='40'
+					height='40'
+					viewBox='0 0 40 40'
+					fill='none'
+					stroke='currentColor'
+					strokeWidth='3'
+					strokeLinecap='round'
+					strokeLinejoin='round'
+				>
+					<circle cx='20' cy='20' r='16'></circle>
+					<line x1='25' y1='15' x2='15' y2='25'></line>
+					<line x1='15' y1='15' x2='25' y2='25'></line>
+				</svg>
+
+				<div className='text-container'>
+					<h2>Encerrar sala</h2>
+					<p>Tem certeza que você deseja encerrar esta sala?</p>
+				</div>
+
+				<div className='buttons-container'>
+					<Button isGray onClick={() => setShowModal(false)}>
+						Cancelar
+					</Button>
+					<Button isDanger onClick={handleEndRoom}>
+						Sim, encerrar
+					</Button>
+				</div>
+			</Modal>
 		</div>
 	)
 }
