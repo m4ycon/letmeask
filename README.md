@@ -34,7 +34,7 @@ You can view this repo deployed by clicking [here](https://letmeask-19e44.web.ap
 ---
 
 # 📚 Beyond the event
-This section lists a bunch of features that were made after the event ended.
+This section lists a bunch of features made in addition to the content of NLW.
   - [x] Responsiveness
   - [ ] Modal
   - [x] Ranking questions by likes, highlighted and answered
@@ -47,7 +47,7 @@ This section lists a bunch of features that were made after the event ended.
 
 # 🏭 How to install/use
 
-This section describes how to run this app locally at your environment. For this you need to have `node` and `git` installed.
+This section describes how to run this app locally at your environment, of course you can access the deployed version [here](https://letmeask-19e44.web.app/). For this you need to have `node` and `git` installed.
 
 If you have `yarn` installed, you can replace `npm`. Open `cmd` and:
 ```bash
